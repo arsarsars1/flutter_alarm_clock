@@ -1,4 +1,5 @@
 import 'package:flutter_alarm_clock/app/data/models/alarm_info.dart';
+import 'package:path/path.dart'; // Add this import
 import 'package:sqflite/sqflite.dart';
 
 final String tableAlarm = 'alarm';
@@ -29,7 +30,7 @@ class AlarmHelper {
 
   Future<Database> initializeDatabase() async {
     var dir = await getDatabasesPath();
-    var path = dir + "alarm.db";
+    var path = join(dir, "alarm.db");
 
     var database = await openDatabase(
       path,
